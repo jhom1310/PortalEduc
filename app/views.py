@@ -43,3 +43,6 @@ def submit_cadastro(request):
     novoUsuario.save()
 
     return redirect('/login/')
+
+def user_inicial (request):
+    return render(request, 'user.html')

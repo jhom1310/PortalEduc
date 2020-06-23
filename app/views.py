@@ -45,4 +45,4 @@ def submit_cadastro(request):
     return redirect('/login/')
 
 def user_inicial (request):
-    return render(request, 'user.html')
+    return render(request, 'userHome.html')

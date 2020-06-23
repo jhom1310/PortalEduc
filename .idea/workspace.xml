@@ -44,7 +44,11 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+=======
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+>>>>>>> upstream/master
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -112,9 +116,13 @@
       <map>
         <entry key="MAIN">
           <value>
+<<<<<<< HEAD
+            <State />
+=======
             <State>
               <option name="COLUMN_ORDER" />
             </State>
+>>>>>>> upstream/master
           </value>
         </entry>
       </map>
@@ -149,6 +157,12 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592522122028" />
+<<<<<<< HEAD
+    <state x="184" y="27" key="SettingsEditor" timestamp="1592670234619">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="184" y="27" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1592670234619" />
+=======
     <state x="184" y="27" key="SettingsEditor" timestamp="1592674169679">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -157,6 +171,7 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="379" y="209" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1592674155570" />
+>>>>>>> upstream/master
     <state x="346" y="49" key="search.everywhere.popup" timestamp="1592519545291">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

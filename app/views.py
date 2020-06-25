@@ -50,3 +50,7 @@ def user_inicial (request):
 
 def index(request):
     return render(request, 'index.html')
+
+# list = disciplina.Object.get(atiacao = true)
+# return render(request,'lista.html',{'list': list})
+# html = {% for x in list %} {% endfor %}

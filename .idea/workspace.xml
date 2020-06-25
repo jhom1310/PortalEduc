@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e124c93-062e-4bab-9734-6ae7413b1435" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/app/static/css/user.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/templates/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/css/log.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/css/log.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/portal/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/portal/urls.py" afterDir="false" />
+>>>>>>> e4efd6becc45b6a91a639f66286ec4c46aceab58
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +31,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/jhom1310/PortalEduc.git" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1dSzjWKWoYqxqdu1tBzbaYsMSyI" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -31,7 +48,16 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Instabott" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+<<<<<<< HEAD
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+=======
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+>>>>>>> upstream/master
+>>>>>>> e4efd6becc45b6a91a639f66286ec4c46aceab58
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -69,6 +95,18 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -82,8 +120,37 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+<<<<<<< HEAD
+            <State />
+=======
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+>>>>>>> upstream/master
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
+<<<<<<< HEAD
     <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1592951594544">
+=======
+    <state x="442" y="188" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1592672977213">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="442" y="188" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.768@0.0.1366.768" timestamp="1592672977213" />
+    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog" timestamp="1592672997345">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="92" y="92" width="1182" height="584" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1592672997345" />
+    <state x="463" y="120" key="FileChooserDialogImpl" timestamp="1592434292320">
+>>>>>>> e4efd6becc45b6a91a639f66286ec4c46aceab58
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1592951594544" />
@@ -103,6 +170,21 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1345" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592522122028" />
+<<<<<<< HEAD
+    <state x="184" y="27" key="SettingsEditor" timestamp="1592670234619">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="184" y="27" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1592670234619" />
+=======
+    <state x="184" y="27" key="SettingsEditor" timestamp="1592674169679">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="184" y="27" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1592674169679" />
+    <state x="379" y="209" key="com.intellij.ide.util.TipDialog" timestamp="1592674155570">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="379" y="209" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1592674155570" />
+>>>>>>> upstream/master
     <state x="346" y="49" key="search.everywhere.popup" timestamp="1592519545291">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

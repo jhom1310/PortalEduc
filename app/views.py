@@ -43,3 +43,10 @@ def submit_cadastro(request):
     novoUsuario.save()
 
     return redirect('/login/')
+
+@login_required(login_url='/login')
+def user_inicial (request):
+    return render(request, 'userHome.html')
+
+def index(request):
+    return render(request, 'index.html')

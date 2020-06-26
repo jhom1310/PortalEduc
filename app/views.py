@@ -6,9 +6,15 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.contrib.auth.models import User
+from .models import *
 # Create your views here.
+
+def logout_user(request):
+    logout(request)
+    return redirect('/login/')
+
 def login_inicial (request):
-    return render(request, 'log.html')
+    return render(request, 'login.html')
 
 @csrf_protect
 def submit_login(request):
@@ -23,21 +29,25 @@ def submit_login(request):
             messages.error(request, 'Usuario ou Senha inválido.')
     return redirect('/login/')
 
+
+def cadastro(request):
+    return render(request, 'register.html')
+
 @require_POST
 def submit_cadastro(request):
     try:
-        usuario_aux = User.objects.get(email=request.POST['emailsignup'])
+        usuario_aux = User.objects.get(email=request.POST['email'])
 
         if usuario_aux :
             messages.error(request, 'Email ou Usuario já em uso.')
-            return redirect('/login/#toregister')
+            return redirect('/register')
 
 
     except User.DoesNotExist:
      first_name = request.POST['name']
-     username = request.POST['usernamesignup']
-     email = request.POST['emailsignup']
-     password = request.POST['passwordsignup']
+     username = request.POST['username']
+     email = request.POST['email']
+     password = request.POST['password']
 
     novoUsuario = User.objects.create_user(username=username, email=email, password=password, first_name= first_name)
     novoUsuario.save()
@@ -46,7 +56,12 @@ def submit_cadastro(request):
 
 @login_required(login_url='/login')
 def user_inicial (request):
-    return render(request, 'userHome.html')
+    return render(request, 'user_Home.html')
 
-def index(request):
-    return render(request, 'index.html')
+@login_required(login_url='/login')
+def all_courses (request):
+    cursos = Curso.objects.all()
+    return render(request, 'all-courses.html', {'cursos': cursos})
+
+def xx (request):
+    return render(request, 'header.html')

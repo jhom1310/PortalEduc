@@ -22,3 +22,4 @@ class Disciplinas(models.Model):
 
     class Meta:
         ordering = ['nome']
+

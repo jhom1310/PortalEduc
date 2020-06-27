@@ -9,11 +9,12 @@ from django.contrib.auth.admin import UserAdmin
 class CursoAdmin(admin.ModelAdmin):
     list_display = ['nome']
 
-
-
 @admin.register(Disciplinas)
 class DisciplinaAdmin(admin.ModelAdmin):
     list_display = ['nome']
+
+
+
 
 
 

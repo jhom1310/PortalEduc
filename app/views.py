@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.contrib.auth.models import User
 from .models import *
+from django.contrib.auth.decorators import permission_required
 # Create your views here.
 
 def logout_user(request):
@@ -58,10 +59,20 @@ def submit_cadastro(request):
 def user_inicial (request):
     return render(request, 'user_Home.html')
 
+
+@permission_required('app.change_curso', login_url='/restrito')
 @login_required(login_url='/login')
 def all_courses (request):
     cursos = Curso.objects.all()
     return render(request, 'all-courses.html', {'cursos': cursos})
+
+@login_required(login_url='/login')
+def all_disciplinas (request):
+    disciplinas = Disciplinas.objects.all()
+    return render(request, 'all-disciplinas.html', {'disciplinas': disciplinas})
+
+def restrito(request):
+    return render(request, '403.html')
 
 def xx (request):
     return render(request, 'header.html')

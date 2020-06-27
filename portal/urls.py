@@ -26,5 +26,7 @@ urlpatterns = [
     path('register/', views.cadastro),
     path('', views.user_inicial),
     path('all-courses', views.all_courses),
+    path('all-disciplinas', views.all_disciplinas),
     path('xx/', views.xx),
+    path('restrito/', views.restrito),
 ]

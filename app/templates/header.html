@@ -76,21 +76,11 @@
         <nav id="sidebar" class="">
             <div class="sidebar-header">
                 <a href="/"><img class="main-logo" src="{% static 'img/logo/logo1.png'%}" alt="" /></a>
-                <strong><a href="index.html"><img src="{% static 'img/logo/logosn.png'%}" alt="" /></a></strong>
+                <strong><a href="/"><img src="{% static 'img/logo/logosn.png'%}" alt="" /></a></strong>
             </div>
-            <div class="left-custom-menu-adp-wrap comment-scrollbar">
-                <nav class="sidebar-nav left-sidebar-menu-pro">
+            <div class="left-custom-menu-adp-wrap comment-scrollbar" >
+                <nav class="sidebar-nav left-sidebar-menu-pro" >
                     <ul class="metismenu" id="menu1">
-                        <li class="active">
-                            <a class="has-arrow" href="/">
-								   <span class="educate-icon educate-home icon-wrap"></span>
-								   <span class="mini-click-non">Education</span>
-								</a>
-                            <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="Dashboard v.1" href=" "><span class="mini-sub-pro">----</span></a></li>
-                            </ul>
-                        </li>
-
                         <li>
                             <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Professor</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
@@ -121,8 +111,8 @@
                         <li>
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Disciplinas</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Library" href="library-assets.html"><span class="mini-sub-pro">Disciplinas Ativas</span></a></li>
-                                <li><a title="Add Library" href="add-library-assets.html"><span class="mini-sub-pro">Adicionar Disciplina</span></a></li>
+                                <li><a title="All Library" href="all-disciplinas"><span class="mini-sub-pro">Disciplinas Ativas</span></a></li>
+                                <li><a title="Add Library" href="{% url 'add-disciplina' %}"><span class="mini-sub-pro">Adicionar Disciplina</span></a></li>
                                 <li><a title="Edit Library" href="edit-library-assets.html"><span class="mini-sub-pro">Editar Disciplina</span></a></li>
                             </ul>
                         </li>
@@ -395,7 +385,8 @@
 
         <!-- conteudo aqui -->
         {% block content %} {% endblock %}
-        
+</body>
+
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
@@ -407,7 +398,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
 
     <!-- jquery
 		============================================ -->
@@ -468,6 +459,6 @@
 		============================================ -->
     <script src="{% static 'js/main.js'%}"></script>
 
-</body>
+
 
 </html>

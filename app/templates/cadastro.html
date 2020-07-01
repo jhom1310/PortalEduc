@@ -1,11 +1,10 @@
 <!doctype html>
-{% load static %}
 <html class="no-js" lang="pt-br">
-
+{% load static %}
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Login | Portal Educ</title>
+    <title>Registrar |  - Portal Educ</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -63,51 +62,49 @@
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
 	<div class="error-pagewrap">
 		<div class="error-page-int">
-			<div class="text-center m-b-md custom-login">
-				<h3>PORTAL EDUC - LOGIN</h3>
+			<div class="text-center custom-login">
+				<h3>PORTAL EDUC - CADASTRO</h3>
 				<p>Gestão Educacional</p>
 			</div>
 			<div class="content-error">
 				<div class="hpanel">
                     <div class="panel-body">
-                        <form method="POST" action="submit" id="loginForm">
-                            {%csrf_token%}
-                            <div class="form-group">
-                                <label class="control-label" for="username">Usuario</label>
-                                <input type="text" placeholder="admin" title="Entre com seu usuario" required="" value="" name="username" id="username" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label" for="password">Senha</label>
-                                <input type="password" title="Entre com sua senha" placeholder="******" required="" value="" name="password" id="password" class="form-control">
-                            </div>
-                            <div class="checkbox login-checkbox">
-                                <label>
-										<input type="checkbox" class="i-checks"> Lembrar </label>
-                            </div>
-                            <button class="btn btn-success btn-block loginbtn">Entrar</button>
-                            <a class="btn btn-default btn-block" href="/register">Registrar</a>
-                        </form>
+                             {% csrf_token %}
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+                                    <form method="post" >
+                                         {% csrf_token %}
+
+                                            {{ form.as_p }}
+
+
+                                        <div class="checkbox col-lg-12">
+                                            <input type="checkbox" class="i-checks" checked> Aceito os termos de uso
+                                        </div>
+                                         <div class="text-center">
+
+                                            <button  class="btn btn-success loginbtn">Registrar</button>
+                                         </div>
+                                     </form>
+                         {% if messages %}
+                            <ul>
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
                     </div>
-                        <div>
-                                    {% for message in messages %}
-                                    <div>
-                                        <strong>{{message}}</strong>
-                                    </div>
-                                    {% endfor %}
-                        </div>
+                            </div>
+                    </div>
                 </div>
-			</div>
-			<div class="text-center login-footer">
-				<p>Copyright © 2018. All rights reserved. By <a href="https://github.com/jhom1310">Aleff</a></p>
-			</div>
-		</div>   
+            </div>
+        </div>
     </div>
-    <!-- jquery
+
+ 
+ <!-- jquery
 		============================================ -->
     <script src="{% static 'js/vendor/jquery-1.12.4.min.js'%}"></script>
     <!-- bootstrap JS

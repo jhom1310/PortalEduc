@@ -110,6 +110,11 @@
                                 <button  class="btn btn-success loginbtn">Registrar</button>
 
                             </div>
+                            {% for message2 in messages %}
+                                    <div>
+                                        <strong>Error! {{message2}}</strong>
+                                    </div>
+                                    {% endfor %}
                         </form>
                     </div>
                 </div>
@@ -165,9 +170,7 @@
     <!-- main JS
 		============================================ -->
     <script src="{% static 'js/main.js'%}"></script>
-    <!-- tawk chat JS
-		============================================ -->
-    <script src="{% static 'js/tawk-chat.js'%}"></script>
+
 </body>
 
 </html>

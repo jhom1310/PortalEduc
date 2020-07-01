@@ -1,115 +1,47 @@
-<!doctype html>
 {% extends "header.html" %}
-<html class="no-js" lang="pt-br">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Todos Cursos | Portal Educ</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-</head>
-
-<body>
-    {% block content %}
-    {% for x in cursos %}
-     <div class="courses-area">
+{% block content %}
+        <div class="product-status mg-b-15">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="courses-inner res-mg-b-30">
-                            <div class="courses-title">
-                                <a href="#"><img src="img/courses/1.jpg" alt=""></a>
-                                <h2>{{x.nome}}</h2>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-status-wrap">
+                            <h4>Todos Cursos</h4>
+                            {% if perms.add_curso %}
+                            <div class="add-product">
+                                <a href="#">Adicionar Curso</a>
                             </div>
-                            <div class="courses-alaltic">
-                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-heart"></i></span> 50</span>
-                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-dollar"></i></span> 500</span>
-                            </div>
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Duração:</b> 9 Semestres</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Período:</b> Integral</p>
-                            </div>
-                            <div class="product-buttons">
-                                <button type="button" class="button-default cart-btn">Read More</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!------------------------
-                     ------------------------->
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="courses-inner">
-                            <div class="courses-title">
-                                <a href="#"><img src="img/courses/2.jpg" alt=""></a>
-                                <h2>Illustrator CC 2018</h2>
-                            </div>
-                            <div class="courses-alaltic">
-                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-clock"></i></span> 1 Year</span>
-                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-heart"></i></span> 50</span>
-                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-dollar"></i></span> 500</span>
-                            </div>
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Duration:</b> 6 Months</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Professor:</b> Jane Doe</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Students:</b> 100+</p>
-                            </div>
-                            <div class="product-buttons">
-                                <button type="button" class="button-default cart-btn">Read More</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!------------------------
-                     ------------------------->
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="courses-inner res-mg-t-30 dk-res-t-pro-30">
-                            <div class="courses-title">
-                                <a href="#"><img src="img/courses/3.jpg" alt=""></a>
-                                <h2>Indesign cs6 2018</h2>
-                            </div>
-                            <div class="courses-alaltic">
-                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-clock"></i></span> 1 Year</span>
-                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-heart"></i></span> 50</span>
-                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-dollar"></i></span> 500</span>
-                            </div>
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Duration:</b> 6 Months</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Professor:</b> Jane Doe</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Students:</b> 100+</p>
-                            </div>
-                            <div class="product-buttons">
-                                <button type="button" class="button-default cart-btn">Read More</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!------------------------
-                     ------------------------->
-                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="courses-inner res-mg-t-30 dk-res-t-pro-30">
-                            <div class="courses-title">
-                                <a href="#"><img src="img/courses/1.jpg" alt=""></a>
-                                <h2>Web Development</h2>
-                            </div>
-                            <div class="courses-alaltic">
-                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-clock"></i></span> 1 Year</span>
-                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-heart"></i></span> 50</span>
-                                <span class="cr-ic-r"><span class="course-icon"><i class="fa fa-dollar"></i></span> 500</span>
-                            </div>
-                            <div class="course-des">
-                                <p><span><i class="fa fa-clock"></i></span> <b>Duration:</b> 6 Months</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Professor:</b> Jane Doe</p>
-                                <p><span><i class="fa fa-clock"></i></span> <b>Students:</b> 100+</p>
-                            </div>
-                            <div class="product-buttons">
-                                <button type="button" class="button-default cart-btn">Read More</button>
+                            {% else %}
+                            {% endif %}
+                            <div class="asset-inner">
+                                <table>
+                                    <tr>
+                                        <th>CURSO</th>
+                                        <th>DISCIPLINAS</th>
+
+                                    </tr>
+                                    {% for x in cursos %}
+                                    <tr>
+                                        <td>{{x.nome}}</td>
+                                        <td>{% for z in x.disciplinas.all %} <li>{{z.nome}}</li>{%endfor%}</td>
+
+
+                                        <td>
+                                            {% if perms.change_disciplinas %}
+                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                            {% else %}
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-     {% endfor %}
-    {% endblock %}
-</body>
 
-</html>
+    </div>
+{% endblock %}

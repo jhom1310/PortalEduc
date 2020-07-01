@@ -1,27 +1,17 @@
-<!doctype html>
 {% extends "header.html" %}
-{% load static %}
-<html class="no-js" lang="en">
 
-<head>
-
-</head>
-
-<body>
 {% block content %}
-    <!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
-    <!-- Start Left menu area -->
         <div class="product-status mg-b-15">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="product-status-wrap">
                             <h4>Todas Disciplinas</h4>
+                            {% if perms.add_disciplinas %}
                             <div class="add-product">
                                 <a href="#">Adicionar Disciplina</a>
                             </div>
+                            {% endif %}
                             <div class="asset-inner">
                                 <table>
                                     <tr>
@@ -36,9 +26,7 @@
                                     <tr>
                                         <td>{{x.id}}</td>
                                         <td>{{x.nome}}</td>
-                                        <td>
-                                            <button class="pd-setting">{{x.status}}</button>
-                                        </td>
+                                        <td>{{x.get_status_display}}</td>
                                         <td>{{x.prof.first_name}}</td>
 
                                         <td>{% for z in x.requisitos.all %} {{z.nome}}{%endfor%}</td>
@@ -46,7 +34,7 @@
 
                                         <td>
                                             {% if perms.change_disciplinas %}
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                            <a href="{% url 'edit-disciplina' pk=x.pk %}" data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                             <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                             {% else %}
                                             {% endif %}
@@ -54,15 +42,6 @@
                                     </tr>
                                     {% endfor %}
                                 </table>
-                            </div>
-                            <div class="custom-pagination">
-								<ul class="pagination">
-									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">Next</a></li>
-								</ul>
                             </div>
                         </div>
                     </div>
@@ -72,7 +51,3 @@
 
     </div>
 {% endblock %}
-
-</body>
-
-</html>

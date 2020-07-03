@@ -125,6 +125,7 @@ def edit_disciplina(request, pk):
     if request.method == "POST":
         form = DisciplinaForm(request.POST, instance=disciplina)
         if form.is_valid():
+            form.save()
             disciplina.save()
             return redirect('/all-disciplinas')
     else:

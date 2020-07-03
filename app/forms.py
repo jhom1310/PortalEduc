@@ -8,6 +8,9 @@ class DisciplinaForm(ModelForm):
     class Meta:
         model = Disciplinas
         fields = ["nome", "requisitos", "prof", "alunos", "status"]
+        widgets = {
+            'categories': forms.CheckboxSelectMultiple,
+        }
 
     def __init__(self, *args, **kwargs):
         super(DisciplinaForm, self).__init__(*args, **kwargs)
@@ -17,6 +20,8 @@ class DisciplinaForm(ModelForm):
         self.fields['prof'].widget.attrs['class'] = 'form-control'
         self.fields['alunos'].widget.attrs['class'] = 'form-control'
         self.fields['status'].widget.attrs['class'] = 'form-control'
+
+
 
 
 class SignUpForm(UserCreationForm):

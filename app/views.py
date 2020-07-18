@@ -13,6 +13,8 @@ from django.contrib.auth.decorators import permission_required
 from rest_framework import viewsets
 from .serializers import DisciplinasSerializer
 # Create your views here.
+from django.contrib.auth.models import User
+from django.contrib.auth import models
 
 def logout_user(request):
     logout(request)
@@ -132,7 +134,13 @@ def edit_disciplina(request, pk):
         form = DisciplinaForm(instance=disciplina)
     return render(request, 'add-disciplinas.html', {'form': form, 'teste': teste})
 
+############ Alunos ###################
 
+@login_required(login_url='/login')
+def all_alunos(request):
+    group = models.Group.objects.get(name='Alunos')
+    alunos = User.objects.filter(groups__name='Alunos')
+    return render(request, 'all-alunos.html', {'alunos': alunos})
 
 ############ Acesso negado ###################
 def restrito(request):

@@ -81,6 +81,7 @@
             <div class="left-custom-menu-adp-wrap comment-scrollbar" >
                 <nav class="sidebar-nav left-sidebar-menu-pro" >
                     <ul class="metismenu" id="menu1">
+                        {% if user.is_staff%}
                         <li>
                             <a class="has-arrow" href="all-professors.html" aria-expanded="false"><span class="educate-icon educate-professor icon-wrap"></span> <span class="mini-click-non">Professor</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
@@ -90,32 +91,35 @@
                                 <li><a title="Professor Profile" href="professor-profile.html"><span class="mini-sub-pro">Professor Profile</span></a></li>
                             </ul>
                         </li>
+                        {% endif %}
                         <li>
                             <a class="has-arrow" href="all-students.html" aria-expanded="false"><span class="educate-icon educate-student icon-wrap"></span> <span class="mini-click-non">Alunos</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Students" href="all-students.html"><span class="mini-sub-pro">Todos Alunos</span></a></li>
-                                <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Adicionar Alunos</span></a></li>
-                                <li><a title="Edit Students" href="edit-student.html"><span class="mini-sub-pro">Editar Alunos</span></a></li>
-                                <li><a title="Students Profile" href="student-profile.html"><span class="mini-sub-pro">Aluno Profile</span></a></li>
+
                             </ul>
                         </li>
+
                         <li>
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Cursos</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="All Courses" href="/all-courses"><span class="mini-sub-pro">Todos Cursos</span></a></li>
+                                {% if user.is_staff %}
                                 <li><a title="Add Courses" href="add-course.html"><span class="mini-sub-pro">Adicionar Cursos</span></a></li>
                                 <li><a title="Edit Courses" href="edit-course.html"><span class="mini-sub-pro">Editar Cursos</span></a></li>
                                 <li><a title="Courses Profile" href="course-info.html"><span class="mini-sub-pro">Informações - Cursos</span></a></li>
+                                {% endif %}
                             </ul>
                         </li>
+
                         <li>
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Disciplinas</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="All Library" href="all-disciplinas"><span class="mini-sub-pro">Disciplinas Ativas</span></a></li>
+                                <li><a title="All Library" href="{% url 'all-disciplinas'%}"><span class="mini-sub-pro">Disciplinas Ativas</span></a></li>
                                 <li><a title="Add Library" href="{% url 'add-disciplina' %}"><span class="mini-sub-pro">Adicionar Disciplina</span></a></li>
-                                <li><a title="Edit Library" href="edit-library-assets.html"><span class="mini-sub-pro">Editar Disciplina</span></a></li>
                             </ul>
                         </li>
+                        {% if user.is_staff %}
                         <li>
                             <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Departments</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
@@ -124,6 +128,7 @@
                                 <li><a title="Edit Departments" href="edit-department.html"><span class="mini-sub-pro">Edit Departments</span></a></li>
                             </ul>
                         </li>
+                        {% endif %}
 
                     </ul>
                 </nav>
@@ -202,39 +207,23 @@
                             <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul class="mobile-menu-nav">
-                                        <li><a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                            <ul class="collapse dropdown-header-top">
-                                                <li><a href="index.html">Dashboard v.1</a></li>
-                                                <li><a href="index-1.html">Dashboard v.2</a></li>
-                                                <li><a href="index-3.html">Dashboard v.3</a></li>
-                                                <li><a href="analytics.html">Analytics</a></li>
-                                                <li><a href="widgets.html">Widgets</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="events.html">Event</a></li>
-                                        <li><a data-toggle="collapse" data-target="#demoevent" href="#">Professors <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                        {% if user.is_staff%}
+                                        <li><a data-toggle="collapse" data-target="#demoevent" href="#">Professor <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                             <ul id="demoevent" class="collapse dropdown-header-top">
-                                                <li><a href="all-professors.html">All Professors</a>
+                                                <li><a href="all-professors.html">Todos Professores</a>
                                                 </li>
-                                                <li><a href="add-professor.html">Add Professor</a>
+                                                <li><a href="add-professor.html">Adicionar Professor</a>
                                                 </li>
-                                                <li><a href="edit-professor.html">Edit Professor</a>
-                                                </li>
-                                                <li><a href="professor-profile.html">Professor Profile</a>
+                                                <li><a href="edit-professor.html">Editar Professor</a>
                                                 </li>
                                             </ul>
                                         </li>
-                                        <li><a data-toggle="collapse" data-target="#demopro" href="#">Students <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                        {% endif %}
+                                        <li><a data-toggle="collapse" data-target="#demopro" href="#">Alunos <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                             <ul id="demopro" class="collapse dropdown-header-top">
-                                                <li><a href="all-students.html">All Students</a>
+                                                <li><a href="all-students.html">Todos Alunos</a>
                                                 </li>
-                                                <li><a href="add-student.html">Add Student</a>
-                                                </li>
-                                                <li><a href="edit-student.html">Edit Student</a>
-                                                </li>
-                                                <li><a href="student-profile.html">Student Profile</a>
-                                                </li>
-                                            </ul>
+
                                         </li>
                                         <li><a data-toggle="collapse" data-target="#democrou" href="#">Courses <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                             <ul id="democrou" class="collapse dropdown-header-top">

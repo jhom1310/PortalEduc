@@ -21,11 +21,30 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '=+l8(0a4*@a1p9vh8%s(xoduv)8wd#teoht0*rp6ze2x37!)%b'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+PROJETO_EM_TESTE = False
+
+if PROJETO_EM_TESTE:
+    DEBUG = True
+    ALLOWED_HOSTS = []
+    # Database
+    # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+else:
+    DEBUG = True
+    ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -41,6 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'rest_framework',
 
 ]
 
@@ -75,15 +95,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'portal.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Password validation

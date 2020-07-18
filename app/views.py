@@ -8,10 +8,10 @@ from django.views.decorators.http import require_POST
 from django.shortcuts import get_object_or_404
 from app.forms import *
 from app.models import Disciplinas
-
-
 from .models import *
 from django.contrib.auth.decorators import permission_required
+from rest_framework import viewsets
+from .serializers import DisciplinasSerializer
 # Create your views here.
 
 def logout_user(request):
@@ -140,3 +140,9 @@ def restrito(request):
 
 def xx (request):
     return render(request, 'header.html')
+
+
+########## API #################
+class DisciplinasViewSet(viewsets.ModelViewSet):
+    queryset = Disciplinas.objects.all()
+    serializer_class = DisciplinasSerializer

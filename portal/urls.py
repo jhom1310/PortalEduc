@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app import views
+from django.conf.urls import include
+from app.views import DisciplinasViewSet
+from rest_framework import routers
+############ API ##############
+router = routers.DefaultRouter()
+router.register(r'disciplinas', DisciplinasViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +38,7 @@ urlpatterns = [
     path('restrito/', views.restrito),
     path('add-disciplinas', views.add_disciplinas, name='add-disciplina'),
     path('disciplina/<int:pk>/edit/', views.edit_disciplina, name='edit-disciplina'),
+    path('api/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+

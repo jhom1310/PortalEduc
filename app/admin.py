@@ -1,4 +1,4 @@
-from .models import Disciplinas, Curso
+from .models import Disciplina, Curso, DisciplinasInstance
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
@@ -9,10 +9,13 @@ from django.contrib.auth.admin import UserAdmin
 class CursoAdmin(admin.ModelAdmin):
     list_display = ['nome']
 
-@admin.register(Disciplinas)
+@admin.register(Disciplina)
 class DisciplinaAdmin(admin.ModelAdmin):
     list_display = ['nome']
 
+@admin.register(DisciplinasInstance)
+class DisciplinaAdmin(admin.ModelAdmin):
+    list_display = ['prof']
 
 
 

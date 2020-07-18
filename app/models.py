@@ -8,7 +8,7 @@ import uuid
 
 class Curso(models.Model):
     nome = models.CharField(max_length=50)
-    disciplinas = models.ManyToManyField('Disciplinas')
+    disciplinas = models.ManyToManyField('Disciplina')
 
 
     def __str__(self):
@@ -23,10 +23,15 @@ class Curso(models.Model):
                 ('permissao_excluir_curso', 'Pode adicionar'),
             ) '''
 
-
-class Disciplinas(models.Model):
+class Disciplina(models.Model):
     nome = models.CharField(max_length=50)
     requisitos = models.ManyToManyField('self', null=True, blank=True, symmetrical=False)
+
+    def __str__(self):
+        return str(self.nome)
+
+class DisciplinasInstance(models.Model):
+    disciplina = models.ForeignKey(Disciplina, on_delete=models.CASCADE)
     prof = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'groups__name': 'Professores'})
     alunos = models.ManyToManyField(User,related_name='Alunos', blank=True, limit_choices_to={'groups__name':'Alunos'})
     LOAN_STATUS = (
@@ -44,8 +49,10 @@ class Disciplinas(models.Model):
         help_text='Status da Disciplina',
     )
 
+    presenca = models.DateField()
+
     def __str__(self):
-        return str(self.nome)
+        return str(self.disciplina)
 
     class Meta:
         ordering = ['id']

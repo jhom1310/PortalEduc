@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.shortcuts import get_object_or_404
 from app.forms import *
-from app.models import Disciplinas
+from app.models import Disciplina, DisciplinasInstance
 from .models import *
 from django.contrib.auth.decorators import permission_required
 from rest_framework import viewsets
@@ -15,6 +15,7 @@ from .serializers import DisciplinasSerializer
 # Create your views here.
 from django.contrib.auth.models import User
 from django.contrib.auth import models
+import datetime
 
 def logout_user(request):
     logout(request)
@@ -103,7 +104,7 @@ def all_courses (request):
 ############ Disciplinas ###################
 @login_required(login_url='/login')
 def all_disciplinas(request):
-    disciplinas = Disciplinas.objects.all()
+    disciplinas = DisciplinasInstance.objects.all()
     return render(request, 'all-disciplinas.html', {'disciplinas': disciplinas})
 
 @permission_required('app.add_disciplinas', login_url='/restrito')
@@ -123,7 +124,7 @@ def add_disciplinas(request):
 @login_required(login_url='/login')
 def edit_disciplina(request, pk):
     teste = True
-    disciplina = Disciplinas.objects.get(pk=pk)
+    disciplina = DisciplinasInstance.objects.get(pk=pk)
     if request.method == "POST":
         form = DisciplinaForm(request.POST, instance=disciplina)
         if form.is_valid():
@@ -133,6 +134,28 @@ def edit_disciplina(request, pk):
     else:
         form = DisciplinaForm(instance=disciplina)
     return render(request, 'add-disciplinas.html', {'form': form, 'teste': teste})
+
+@permission_required('app.change_disciplinas', login_url='/restrito')
+@login_required(login_url='/login')
+def minhas_discipinas(request):
+    user = request.user
+    disciplinas = DisciplinasInstance.objects.filter(prof=user)
+    return render(request, 'minhas-disciplinas.html', {'disciplinas': disciplinas})
+
+def view_disciplina(request, pk):
+    disc = DisciplinasInstance.objects.get(pk=pk)
+    print(disc)
+    alunos = disc.alunos.all()
+    print(alunos)
+
+
+    return render(request, 'view-disciplina.html', {'alunos': alunos})
+
+
+
+
+
+
 
 ############ Alunos ###################
 
@@ -152,5 +175,5 @@ def xx (request):
 
 ########## API #################
 class DisciplinasViewSet(viewsets.ModelViewSet):
-    queryset = Disciplinas.objects.all()
+    queryset = DisciplinasInstance.objects.all()
     serializer_class = DisciplinasSerializer

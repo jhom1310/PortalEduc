@@ -38,8 +38,11 @@ urlpatterns = [
     path('xx/', views.xx),
     path('restrito/', views.restrito),
     path('add-disciplinas', views.add_disciplinas, name='add-disciplina'),
+    path('minhas-disciplinas', views.minhas_discipinas, name='minhas-disciplinas'),
     path('disciplina/<int:pk>/edit/', views.edit_disciplina, name='edit-disciplina'),
+    path('disciplina/<int:pk>/view/', views.view_disciplina, name='view-disciplina'),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+
 ]
 

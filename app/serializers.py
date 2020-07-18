@@ -1,4 +1,4 @@
-from .models import Disciplinas
+from .models import Disciplina, DisciplinasInstance
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import models
@@ -22,11 +22,11 @@ class DisciplinasSerializer(serializers.ModelSerializer):
     requisitos = serializers.SlugRelatedField(
         many=True,
         slug_field='nome',
-        queryset=Disciplinas.objects.all()
+        queryset=DisciplinasInstance.objects.all()
     )
 
     class Meta:
-        model = Disciplinas
-        fields = ('id', 'nome', 'prof', 'requisitos', 'alunos', 'status')
+        model = DisciplinasInstance
+        fields = ('disciplina','id',  'prof',  'alunos', 'status')
 
 

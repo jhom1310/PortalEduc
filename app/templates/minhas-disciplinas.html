@@ -18,24 +18,17 @@
                                         <th>ID</th>
                                         <th>DISCIPLINA</th>
                                         <th>STATUS</th>
-                                        <th>PROFESSOR</th>
-                                        <th>REQUISITOS</th>
-                                        <th>Setting</th>
+                                        <th>CHAMADA</th>
                                     </tr>
                                     {% for x in disciplinas %}
                                     <tr>
                                         <td>{{x.id}}</td>
                                         <td>{{x.disciplina}}</td>
                                         <td>{{x.get_status_display}}</td>
-                                        <td>{{x.prof.first_name}}</td>
-
-                                        <td>{% for z in x.requisitos.all %} {{z.nome}}{%endfor%}</td>
-
 
                                         <td>
                                             {% if perms.app.change_disciplinas %}
-                                            <a href="{% url 'edit-disciplina' pk=x.pk %}" data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                            <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                            <a href="{% url 'view-disciplina' pk=x.pk %}" data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                             {% else %}
                                             {% endif %}
                                         </td>

@@ -9,7 +9,7 @@
                             <h4>Todos Cursos</h4>
                             {% if perms.add_curso %}
                             <div class="add-product">
-                                <a href="#">Adicionar Curso</a>
+                                <a href="{% url 'add-courses' %}">Adicionar Curso</a>
                             </div>
                             {% else %}
                             {% endif %}
@@ -18,7 +18,6 @@
                                     <tr>
                                         <th>CURSO</th>
                                         <th>DISCIPLINAS</th>
-                                        <th>SETTINGS</th>
 
                                     </tr>
                                     {% for x in cursos %}
@@ -29,7 +28,7 @@
 
                                         <td>
                                             {% if perms.change_curso %}
-                                            <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                                            <a href="{% url 'edit-course' pk=x.pk %}" data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                             <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                             {% else %}
                                             {% endif %}

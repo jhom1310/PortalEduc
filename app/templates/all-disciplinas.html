@@ -29,11 +29,11 @@
                                         <td>{{x.get_status_display}}</td>
                                         <td>{{x.prof.first_name}}</td>
 
-                                        <td>{% for z in x.requisitos.all %} {{z.nome}}{%endfor%}</td>
+                                        <td>{% for z in x.disciplina.requisitos.all %} {{z.nome}}{%endfor%}</td>
 
 
                                         <td>
-                                            {% if perms.app.change_disciplinas %}
+                                            {% if perms.app.change_disciplinas and x.prof == user %}
                                             <a href="{% url 'edit-disciplina' pk=x.pk %}" data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                             <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                                             {% else %}

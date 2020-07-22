@@ -15,7 +15,7 @@ class DisciplinaAdmin(admin.ModelAdmin):
 
 @admin.register(DisciplinasInstance)
 class DisciplinaAdmin(admin.ModelAdmin):
-    list_display = ['prof']
+    list_display = ['disciplina']
 
 
 

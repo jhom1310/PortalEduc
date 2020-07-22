@@ -49,7 +49,6 @@ class DisciplinasInstance(models.Model):
         help_text='Status da Disciplina',
     )
 
-    presenca = models.DateField()
 
     def __str__(self):
         return str(self.disciplina)

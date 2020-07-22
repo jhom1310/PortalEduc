@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import ModelForm
-from app.models import Disciplina, DisciplinasInstance
+from app.models import Disciplina, DisciplinasInstance, Curso
 
 class DisciplinaForm(ModelForm):
     class Meta:
@@ -16,12 +16,25 @@ class DisciplinaForm(ModelForm):
         super(DisciplinaForm, self).__init__(*args, **kwargs)
 
        # self.fields['disciplina_nome'].widget.attrs['class'] = 'form-control'
-        #self.fields['disciplina_requisitos'].widget.attrs['class'] = 'form-control'
+        self.fields['disciplina'].widget.attrs['class'] = 'form-control'
         self.fields['prof'].widget.attrs['class'] = 'form-control'
         self.fields['alunos'].widget.attrs['class'] = 'form-control'
         self.fields['status'].widget.attrs['class'] = 'form-control'
 
+class CursoForm(ModelForm):
+    class Meta:
+        model = Curso
+        fields = ["nome", "disciplinas"]
+        widgets = {
+            'categories': forms.CheckboxSelectMultiple,
+        }
 
+    def __init__(self, *args, **kwargs):
+        super(CursoForm, self).__init__(*args, **kwargs)
+
+       # self.fields['disciplina_nome'].widget.attrs['class'] = 'form-control'
+        self.fields['nome'].widget.attrs['class'] = 'form-control'
+        self.fields['disciplinas'].widget.attrs['class'] = 'form-control'
 
 
 class SignUpForm(UserCreationForm):

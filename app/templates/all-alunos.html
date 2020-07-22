@@ -12,12 +12,19 @@
                                 <table>
                                     <tr>
                                         <th>Alunos</th>
+                                        {% if user.is_staff %}
+                                        <th>Tornar Professor</th>
+                                        {% endif %}
 
                                     </tr>
                                     {% for x in alunos %}
                                     <tr>
                                         <td>{{x.first_name }} {{x.last_name}}</td>
-
+                                        {% if user.is_staff %}
+                                        <td>
+                                            <a href="{% url 'add-professores' pk=x.pk%}" type="button" class="btn btn-primary"><i class="fa fa-user edu-avatar" aria-hidden="true"></i></a>
+                                        </td>
+                                        {% endif %}
 
                                     </tr>
                                     {% endfor %}

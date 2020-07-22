@@ -100,6 +100,34 @@ def all_courses (request):
     cursos = Curso.objects.all()
     return render(request, 'all-courses.html', {'cursos': cursos})
 
+@permission_required('app.add_curso', login_url='/restrito')
+@login_required(login_url='/login')
+def add_curso(request):
+    if request.method == 'POST':
+        form = CursoForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('/all-courses')
+    else:
+        form = CursoForm()
+
+    return render(request, 'add-curso.html', {'form': form})
+
+@permission_required('app.change_disciplinas', login_url='/restrito')
+@login_required(login_url='/login')
+def edit_curso(request, pk):
+    teste = True
+    curso = Curso.objects.get(pk=pk)
+    if request.method == "POST":
+        form = CursoForm(request.POST, instance=curso)
+        if form.is_valid():
+            form.save()
+            curso.save()
+            return redirect('/all-courses')
+    else:
+        form = CursoForm(instance=curso)
+    return render(request, 'add-curso.html', {'form': form, 'teste': teste})
+
 
 ############ Disciplinas ###################
 @login_required(login_url='/login')
@@ -113,7 +141,12 @@ def add_disciplinas(request):
     if request.method == 'POST':
         form = DisciplinaForm(request.POST)
         if form.is_valid():
-           form.save()
+            if request.user.groups.filter(name='Professores').exists():
+                disciplina = form.save(commit=False)
+                disciplina.prof = request.user
+                disciplina.save()
+            else:
+                form.save()
         return redirect('/all-disciplinas')
     else:
         form = DisciplinaForm()
@@ -144,24 +177,27 @@ def minhas_discipinas(request):
 
 def view_disciplina(request, pk):
     disc = DisciplinasInstance.objects.get(pk=pk)
-    print(disc)
     alunos = disc.alunos.all()
-    print(alunos)
-
-
     return render(request, 'view-disciplina.html', {'alunos': alunos})
 
 
+########## Professores #################
 
+@login_required(login_url='/login')
+def all_professores(request):
+    alunos = User.objects.filter(groups__name='Professores')
+    return render(request, 'all-professores.html', {'alunos': alunos})
 
-
-
-
+def add_professor(request, pk):
+    professor = User.objects.get(pk=pk)
+    my_group = Group.objects.get(name='Professores')
+    professor.groups.add(my_group)
+    professor.save()
+    return redirect('/all-professores')
 ############ Alunos ###################
 
 @login_required(login_url='/login')
 def all_alunos(request):
-    group = models.Group.objects.get(name='Alunos')
     alunos = User.objects.filter(groups__name='Alunos')
     return render(request, 'all-alunos.html', {'alunos': alunos})
 

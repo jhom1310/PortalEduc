@@ -191,7 +191,9 @@ def all_professores(request):
 def add_professor(request, pk):
     professor = User.objects.get(pk=pk)
     my_group = Group.objects.get(name='Professores')
+    my_group2 = Group.objects.get(name='Alunos')
     professor.groups.add(my_group)
+    professor.groups.remove(my_group2)
     professor.save()
     return redirect('/all-professores')
 ############ Alunos ###################
